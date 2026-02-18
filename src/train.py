@@ -55,3 +55,7 @@ for train_idx, valid_idx in skf.split(X, y):
     scores.append(score)
 
 print("CV F1:", np.mean(scores))
+
+with open("logs/cv.txt", "w", encoding="utf-8") as f:
+    f.write(f"CV F1: {np.mean(scores):.6f}\n")
+
