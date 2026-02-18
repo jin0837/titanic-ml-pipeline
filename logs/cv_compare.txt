@@ -1,0 +1,2 @@
+LogisticRegression	CV_F1	0.722887
+LightGBM	CV_F1	0.773820
