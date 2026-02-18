@@ -53,7 +53,7 @@ GBDTは非線形な分割により相互作用を学習できるため、
 - EDAノートブックの追加
 
 ## 実行方法
-pip install -r requirements.txt
-python src/train.py
+- pip install -r requirements.txt
+- python src/train.py
 ログは logs/cv_compare.txt に出力される。
 
