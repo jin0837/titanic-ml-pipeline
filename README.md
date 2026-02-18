@@ -4,13 +4,30 @@
 再現性ある表データMLパイプライン構築
 
 ## モデル
-LightGBM
+LightGBM, LogisticRegression
+
+## 特徴量と前処理
+
+使用特徴量：
+- Pclass
+- Sex（male=0, female=1）
+- Age（中央値補完）
+- SibSp
+- Parch
+- Fare
+- Embarked（欠損をSで補完し数値化）
+
+最小限の前処理でベースライン性能を評価した。
 
 ## 評価指標
 F1（クラス不均衡のため）
 
-## 検証方法
-StratifiedKFold 5-fold
+## 再現性
+
+- seed: 42
+- StratifiedKFold: 5-fold
+- 設定は configs/exp1.yaml で管理
+- CV結果は logs/ に保存
 
 ## モデル比較と考察
 
@@ -28,7 +45,15 @@ LightGBMの方が高い性能を示した。
 GBDTは非線形な分割により相互作用を学習できるため、
 性能差が生じたと解釈している。
 
+## 今後の改善
+
+- LightGBMのハイパーパラメータチューニング
+- 特徴量エンジニアリング（FamilySize, Titleなど）
+- 誤分類サンプルの分析
+- EDAノートブックの追加
 
 ## 実行方法
 pip install -r requirements.txt
 python src/train.py
+ログは logs/cv_compare.txt に出力される。
+
